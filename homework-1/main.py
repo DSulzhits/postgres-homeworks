@@ -11,7 +11,8 @@ postgres_key = os.getenv('POSTGRESSQL_KEY')
 
 class RecieveDataFromCSV:
 
-    def get_data_csv(self, filename):
+    @staticmethod
+    def get_data_csv(filename):
         all_data = []
         with open(filename, encoding="utf-8") as file:
             data_full = csv.DictReader(file)
@@ -59,7 +60,3 @@ try:
 
 finally:
     conn.close()
-
-# print(customers)
-# print(employees)
-# print(orders)
