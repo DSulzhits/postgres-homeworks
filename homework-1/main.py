@@ -10,6 +10,7 @@ postgres_key = os.getenv('POSTGRESSQL_KEY')
 
 
 class RecieveDataFromCSV:
+    """Класс с методом для получения данных из .csv файлов"""
 
     @staticmethod
     def get_data_csv(filename):
@@ -23,6 +24,8 @@ class RecieveDataFromCSV:
 
 customers = RecieveDataFromCSV().get_data_csv('north_data/customers_data.csv')
 employees = RecieveDataFromCSV().get_data_csv('north_data/employees_data.csv')
+
+# добавление значения id для работников
 employee_id = 1
 for employee_data in employees:
     employee_data['employee_id'] = employee_id
@@ -32,6 +35,7 @@ orders = RecieveDataFromCSV().get_data_csv('north_data/orders_data.csv')
 conn = psycopg2.connect(host='localhost', database='north', user='postgres', password=postgres_key)
 
 try:
+    """Заполнение таблиц внутри БД north данными"""
     with conn:
         with conn.cursor() as cur:
             for customer in range(len(customers)):
