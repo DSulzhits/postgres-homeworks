@@ -39,10 +39,10 @@ DESC;
 -- 6. страны, в которых зарегистрированы и заказчики (customers) и поставщики (suppliers) и работники (employees).
 SELECT country
 FROM customers
-UNION
+INTERSECT
 SELECT country
 FROM suppliers
-UNION
+INTERSECT
 SELECT country
 FROM employees
 ORDER BY country;
