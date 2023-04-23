@@ -33,6 +33,9 @@ for employee_data in employees:
     employee_id += 1
 orders = csv_data_reciever.get_data_csv('north_data/orders_data.csv')
 
+print(customers)
+
+
 conn = psycopg2.connect(host='localhost', database='north', user='postgres', password=postgres_key)
 
 try:
