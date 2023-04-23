@@ -19,5 +19,6 @@ WHERE discontinued = 1;
 DELETE FROM order_details
 WHERE product_id IN (SELECT product_id FROM remove_from_sale);
 
+ALTER TABLE order_details
 ADD CONSTRAINT fk_order_details_products
 FOREIGN KEY(product_id) REFERENCES products(product_id);
